@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="Joshua Landau Developer Portfolio">
+	<Header title='Joshua Landau' />
+	<main>
+		<div style="display: flex; justify-content: center;">
+			<img id="profile-picture" src="/profile-picture.png" alt="Profile Picture" />
+		</div>
+		<p class="text">
+			Hello! I am a professional GIS and web developer with 4 years of experience. I am passionate about creating
+			performant and elegant solutions for data management, geospatial visualization, and general business needs.
+		</p>
+	</main>
+</Layout>
+
+<style>
+	img#profile-picture {
+		height: 200px;
+		border: 1pt solid black;
+		border-radius: 50%;
+	}
+
+	.icon {
+		width: 30px;
+		height: 30px;
+	}
+
+	main {
+		margin: 10px 20px;
+		display: flex;
+		flex-direction: column;
+		/*flex: 1 0 auto;*/
+		/*justify-content: center;*/
+		gap: 20px;
+	}
+
+	.text {
+		color: white;
+	}
+</style>
