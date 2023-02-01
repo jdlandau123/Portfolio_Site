@@ -1,0 +1,161 @@
+<form id="contact-form">
+    <input id="name-input" class="form-input" type='text' placeholder="Name" required />
+    <input id="email-input" class="form-input" type='email' placeholder="Email" required />
+    <textarea id="message-input" class="form-input" placeholder="Message" required />
+    <button id="submit-btn" type="button" disabled>Submit</button>
+</form>
+<p class="response-text"></p>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script>
+    import emailjs from '@emailjs/browser';
+
+    const submitBtn = document.querySelector<HTMLButtonElement>('#submit-btn');
+    const name = document.querySelector<HTMLInputElement>('#name-input');
+    const email = document.querySelector<HTMLInputElement>('#email-input');
+    const message = document.querySelector<HTMLInputElement>('#message-input');
+    const responseText = document.querySelector<HTMLElement>('.response-text');
+
+    type IEmailResponse = {
+        status: number;
+        text: string;
+    }
+
+    type IValidation = {
+        name: boolean;
+        email: boolean;
+        message: boolean;
+    }
+
+    const enableButton = () => {
+        const validationChecks: IValidation = {
+            name: false,
+            email: false,
+            message: false
+        }
+
+        if (name.value) {
+            validationChecks.name = true;
+        }
+
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
+            validationChecks.email = true;
+        }
+
+        if (message.value) {
+            validationChecks.message = true;
+        }
+
+        if (Object.values(validationChecks).every(item => item === true)) {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
+        }
+    }
+
+    name.addEventListener('change', enableButton);
+    email.addEventListener('change', enableButton);
+    message.addEventListener('change', enableButton);
+
+
+    submitBtn.addEventListener('click', () => {        
+        const templateParams = {
+            name: name.value,
+            email: email.value,
+            message: message.value
+        }
+        emailjs.send(
+            import.meta.env.PUBLIC_SERVICE_ID, 
+            import.meta.env.PUBLIC_TEMPLATE_ID, 
+            templateParams,
+            import.meta.env.PUBLIC_EMAIL_PUBLIC_KEY
+        ).then((response: IEmailResponse) => {
+            if (response.status === 200) {
+                name.value = "";
+                email.value = "";
+                message.value = "";
+                responseText.style.display = "block";
+                responseText.innerText = "Thanks for reaching out!";
+            } else {
+                responseText.style.display = "block";
+                responseText.style.color = "red";
+                responseText.innerText = "Could not submit form, please try again later";
+            }
+        });
+    })
+</script>
+
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-input {
+        width: 75%;
+        border: transparent;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    button {
+        border: 1pt solid black;
+        border-radius: 8px;
+        background-color: #009933;
+        color: white;
+        padding: 10px;
+        width: 30%;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background-color: #00cc44;
+    }
+
+    button:disabled {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+    }
+
+    .response-text{
+        display: none;
+        position: relative;
+        margin: 30px 30%;
+        padding: 1em;
+        box-sizing: border-box;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
+    }
+    .response-text::after{
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: -1;
+        left: 85%;
+        box-sizing: border-box;
+        z-index: -99;
+        border: 1em solid black;
+        border-color: transparent transparent white white;
+        transform-origin: 0 0;
+        transform: rotate(135deg);
+        box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    /*desktop only styles*/
+    @media only screen and (min-width: 600px) {
+        .form-input {
+            width: 40%;
+        }
+
+        button {
+            width: 10%;
+        }
+    }
+</style>
