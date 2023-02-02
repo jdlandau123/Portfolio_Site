@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import ContactForm from '../components/ContactForm.astro';
+// import ContactForm from '../components/ContactForm.astro';
+import { ContactForm } from '../components/ContactFormReact';
 ---
 
 <Layout title="Joshua Landau Contact Page">
@@ -10,5 +11,5 @@ import ContactForm from '../components/ContactForm.astro';
         Please feel free to contact me for inquiries about projects
         or any questions about my work
     </p>
-    <ContactForm />
+    <ContactForm client:only />
 </Layout>
