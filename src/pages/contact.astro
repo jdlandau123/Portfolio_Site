@@ -1,15 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-// import ContactForm from '../components/ContactForm.astro';
+import { Header } from '../components/HeaderReact';
 import { ContactForm } from '../components/ContactFormReact';
 ---
 
 <Layout title="Joshua Landau Contact Page">
-    <Header title="Contact" />
+    <Header client:only="react" title="Contact" />
     <p class="text" style="text-align: center;">
         Please feel free to contact me for inquiries about projects
         or any questions about my work
     </p>
-    <ContactForm client:only />
+    <ContactForm client:only="react" />
 </Layout>

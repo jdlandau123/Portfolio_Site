@@ -1,18 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import { Header } from '../components/HeaderReact';
 ---
 
 <Layout title="Joshua Landau Developer Portfolio">
-	<Header title='Joshua Landau' />
+	<Header client:only="react" title='Joshua Landau' />
 	<main>
 		<div style="display: flex; justify-content: center;">
 			<img id="profile-picture" src="/profile-picture.png" alt="Profile Picture" />
 		</div>
 		<p class="text">
-			Hello! I am a professional GIS and web developer with 4 years of experience. I am passionate about creating
-			performant and elegant solutions for data management, geospatial visualization, and general business needs.
+			Hello! I am a motivated GIS Developer with 4 years of professional 
+			experience. Currently I work to provide advanced software solutions to
+			federal and local government clients.
 		</p>
+		<fieldset>
+			<legend class="text">My Skills</legend>
+			<div class="skills">
+				<img class="skillsIcon" src="/icons/react-logo.png" alt="react" />
+				<img class="skillsIcon" src="/icons/angular-logo.png" alt="angular" />
+				<img class="skillsIcon" src="/icons/js-logo.png" alt="javascript" />
+				<img class="skillsIcon" src="/icons/python-logo.png" alt="python" />
+				<img style="height: 50px;" src="/icons/django-logo.png" alt="django" />
+				<img style="height: 40px;" src="/icons/docker-logo.png" alt="docker" />
+				<img class="skillsIcon" src="/icons/postgres-logo.png" alt="postgresql" />
+				<img style="height: 40px;" src="/icons/arcgis-pro-logo.png" alt="arcgis pro" />
+			</div>
+		</fieldset>
 	</main>
 </Layout>
 
@@ -23,9 +37,31 @@ import Header from '../components/Header.astro';
 		border-radius: 50%;
 	}
 
+	.skills {
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
 	.icon {
 		width: 30px;
 		height: 30px;
+	}
+
+	.skillsIcon {
+		width: 50px;
+		height: 50px;
+	}
+
+	fieldset {
+		border-radius: 8px;
+	}
+
+	legend {
+		color: white;
+		font-size: 16pt;
 	}
 
 	main {
@@ -35,5 +71,11 @@ import Header from '../components/Header.astro';
 		/*flex: 1 0 auto;*/
 		/*justify-content: center;*/
 		gap: 20px;
+	}
+
+	@media only screen and (min-width: 600px) {
+		main {
+			margin: 0 20%;
+		}
 	}
 </style>

@@ -15,9 +15,15 @@ export const ContactForm = () => {
     const [message, setMessage] = useState('');
     const [emailError, setEmailError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const [contacted, setContacted] = useState('');  // has to be a string because controlled by a cookie
 
-    useEffect(() => { // listen for screen size
+    useEffect(() => { // listen for screen size and check for contacted cookie
         window.matchMedia("(min-width: 600px)").addEventListener('change', (e) => setDesktopScreen(e.matches));
+        const contactedCookie = document.cookie.split('; ').find((row) => row.startsWith('contacted='));
+        if (!contactedCookie) {
+            document.cookie = 'contacted=false';
+        }
+        setContacted(contactedCookie.split('=')[1]);
     }, [])
 
     useEffect(() => {  // validate form
@@ -32,7 +38,9 @@ export const ContactForm = () => {
         } else { setEmailError('Please enter a valid email address') }
         validationChecks.nameValid = name ? true : false;
         validationChecks.messageValid = message ? true : false;
-        setBtnDisabled(!Object.values(validationChecks).every(item => item === true))
+        if (contacted === 'false') {
+            setBtnDisabled(!Object.values(validationChecks).every(item => item === true))
+        }
     }, [name, email, message])
 
     const sendEmail = () => {
@@ -51,7 +59,9 @@ export const ContactForm = () => {
                 setName('');
                 setEmail('');
                 setMessage('');
-                setSuccessMessage('Thanks for reaching out!');
+                setSuccessMessage('Thanks for reaching out! You will not be able to submit this form again for 24 hours');
+                setContacted('true');
+                document.cookie = 'contacted=true;max-age=86400';
             }
         });
     }
@@ -94,7 +104,7 @@ export const ContactForm = () => {
         },
         successText: {
             color: 'white',
-            marginTop: '20px'
+            margin: '20px 20px'
         }
     }
 

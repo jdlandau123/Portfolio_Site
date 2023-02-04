@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import { Header } from '../components/HeaderReact';
 ---
 
 <Layout title="Joshua Landau Projects Page">
-    <Header title="Projects" />
+    <Header client:only="react" title="Projects" />
 </Layout>
