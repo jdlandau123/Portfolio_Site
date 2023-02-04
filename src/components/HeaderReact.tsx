@@ -41,7 +41,7 @@ export const Header = (props: IProps) => {
         },
         menuItem: {
             color: 'white',
-            fontSize: '18pt',
+            fontSize: desktopScreen ? '18pt' : '14pt',
             textDecoration: 'none'
         },
         mobileMenuContainer: {
@@ -57,7 +57,7 @@ export const Header = (props: IProps) => {
             outline: '1pt solid black',
             backgroundColor: 'rgba(0, 0, 0, 0.35)',
             width: '100%',
-            borderRadius: '8px'
+            borderRadius: '8px',
         },
         desktopMenu: {
             display: 'flex',

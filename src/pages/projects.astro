@@ -1,8 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Project from '../components/Project.astro';
 import { Header } from '../components/HeaderReact';
+
+const tamDescription = `Users can input an area of interest and the app will 
+    create a raster dataset that identifies areas within the specified AOI that 
+    are susceptible to flooding. I used vanilla HTML, CSS, and Javascript along with
+    ESRI's ArcGIS Javascript API to build the UI of this application.`;
 ---
 
 <Layout title="Joshua Landau Projects Page">
     <Header client:only="react" title="Projects" />
+    <Project title="Texas A&M Flow Path Generation Tool"
+        url="https://fastgis.agnet.tamu.edu/alpha/"
+        image="/tam-screenshot.png"
+        description={tamDescription} />
 </Layout>

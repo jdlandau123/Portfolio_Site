@@ -1,0 +1,58 @@
+---
+const { title, url, image, description } = Astro.props;
+---
+
+<div class="wrapper">
+    <div class="projectContainer">
+        <a class="link" href={url} target="_blank">
+            <h2 class="heading">{title}</h2>
+        </a>
+        <img class="image" src={image} alt={title} />
+        <p class="text">{description}</p>
+    </div>
+</div>
+
+<style>
+    .projectContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.35);
+        border: 1pt solid white;
+        border-radius: 8px;
+        margin: 20px 20px;
+        padding: 10px;
+    }
+
+    .heading {
+        font-weight: lighter;
+        color: white;
+        text-align: center;
+    }
+
+    .link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 20px 10%;
+        }
+
+        .projectContainer {
+            width: 50%;
+        }
+    }
+</style>
