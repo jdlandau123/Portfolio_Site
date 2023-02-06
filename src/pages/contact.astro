@@ -6,9 +6,16 @@ import { ContactForm } from '../components/ContactFormReact';
 
 <Layout title="Joshua Landau Contact Page">
     <Header client:only="react" title="Contact" />
-    <p class="text" style="text-align: center;">
-        Please feel free to contact me for inquiries about projects
-        or any questions about my work
+    <p class="heading">
+        Let's build something together!
     </p>
     <ContactForm client:only="react" />
 </Layout>
+
+<style>
+    .heading {
+        color: white;
+        text-align: center;
+        font-size: 16pt;
+    }
+</style>

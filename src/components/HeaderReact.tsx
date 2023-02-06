@@ -80,7 +80,7 @@ export const Header = (props: IProps) => {
             {desktopScreen && <ul style={styles.desktopMenu}>
                 <li><a style={styles.menuItem} href="/">Home</a></li>
                 <li><a style={styles.menuItem} href="projects">Projects</a></li>
-                <li><a style={styles.menuItem} href="about">About</a></li>
+                <li><a style={styles.menuItem} href="experience">Experience</a></li>
                 <li><a style={styles.menuItem} href="contact">Contact</a></li>
             </ul>}
         </div>
@@ -88,7 +88,7 @@ export const Header = (props: IProps) => {
             {showMenu && <ul style={styles.mobileMenu}>
                 <li><a style={styles.menuItem} href="/">Home</a></li>
                 <li><a style={styles.menuItem} href="projects">Projects</a></li>
-                <li><a style={styles.menuItem} href="about">About</a></li>
+                <li><a style={styles.menuItem} href="experience">Experience</a></li>
                 <li><a style={styles.menuItem} href="contact">Contact</a></li>
             </ul>}
         </div>

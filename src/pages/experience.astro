@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Header } from '../components/HeaderReact';
+---
+
+<Layout title="Joshua Landau Experience Page">
+    <Header client:only="react" title="Experience" />
+    <div class="wrapper">
+        <h2 class="heading">Professional</h2>
+        <section class="itemContainer">
+            <div class="itemHeadingMobile">
+                <p>GIS Developer</p>
+                <p>Innovate inc</p>
+                <p>April 2022 - Current</p>
+                <p>Remote</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>GIS Developer</p>
+                <p>April 2022 - Current</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Innovate inc</p>
+                <p>Remote</p>
+            </div>
+            <ul>
+                <li>
+                    Develop interactive user interfaces using Angular Material, React, and vanilla Javascript
+                </li>
+                <li>
+                    Build custom GIS web applications using ESRI products including ArcGIS Pro, ArcGIS Javascript API, and 
+                    ArcGIS Experience Builder
+                </li>
+                <li>
+                    Create REST API services using Django REST Framework, PostgreSQL, and Microsoft SQL Server
+                </li>
+                <li>
+                    Implement Docker to containerize applications and services
+                </li>
+                <li>
+                    Coordinate project objectives with clients and organize tasks throughout the SCRUM process
+                </li>
+            </ul>
+        </section>
+        <section class="itemContainer">
+            <div class="itemHeadingMobile">
+                <p>Environmental GIS Analyst</p>
+                <p>Tehama LLC</p>
+                <p>October 2020 - April 2022</p>
+                <p>Remote</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Environmental GIS Analyst</p>
+                <p>October 2020 - April 2022</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Tehama LLC</p>
+                <p>Remote</p>
+            </div>
+            <ul>
+                <li>
+                    Created maps and figures to depict environmental sampling results
+                </li>
+                <li>
+                    Interpreted, manipulated, and visualized environmental sampling data
+                </li>
+                <li>
+                    Managed, organized, and maintained geospatial databases 
+                </li>
+                <li>
+                    Developed workflows for geospatial analysis to create data products according to client specification
+                </li>
+                <li>
+                    Designated tasks and oversaw progress of GIS technicians
+                </li>
+            </ul>
+        </section>
+        <section class="itemContainer">
+            <div class="itemHeadingMobile">
+                <p>Geospatial Technician</p>
+                <p>Quantum Spatial</p>
+                <p>August 2019 - September 2020</p>
+                <p>St. Petersburg, FL</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Geospatial Technician</p>
+                <p>August 2019 - September 2020</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Quantum Spatial</p>
+                <p>St. Petersburg, FL</p>
+            </div>
+            <ul>
+                <li>
+                    Performed photointerpretation of ground features from satellite imagery
+                </li>
+                <li>
+                    Utilized ArcMap to edit, maintain, update, and create spatial datasets according to client specifications
+                </li>
+                <li>
+                    Developed efficient GIS workflows using complex documentation 
+                </li>
+                <li>
+                    Performed conflation of spatial datasets using L3Harris MapMerger
+                </li>
+                <li>
+                    Assisted in the training of other technicians
+                </li>
+                <li>
+                    Conducted QA/QC procedures to ensure quality standard of geospatial data
+                </li>
+            </ul>
+        </section>
+        <section class="itemContainer">
+            <div class="itemHeadingMobile">
+                <p>Environmental Specialist/GIS Intern</p>
+                <p>Florida Geological Survey</p>
+                <p>May 2019 - July 2019</p>
+                <p>Tallahassee, FL</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Environmental Specialist/GIS Intern</p>
+                <p>May 2019 - July 2019</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Florida Geological Survey</p>
+                <p>Tallahassee, FL</p>
+            </div>
+            <ul>
+                <li>
+                    Used Python to build a custom ArcGIS toolbox that automates basic data population and management tasks
+                </li>
+                <li>
+                    Identificatied, organized, and digitized oil, gas, and mineral assessment sites and reports
+                </li>
+                <li>
+                    Built and maintained a new geodatabase structure to comply with recently updated federal standards
+                </li>
+                <li>
+                    Conducted statistical analysis of spatial features extracted from LiDAR data
+                </li>
+            </ul>
+        </section>
+        <h2 class="heading">Education</h2>
+        <section class="itemContainer">
+            <div class="itemHeadingMobile">
+                <p>Masters of Science in Geographic Information Sciences</p>
+                <p>Florida State University</p>
+                <p>August 2019</p>
+                <p>Tallahassee, FL</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Masters of Science in Geographic Information Sciences</p>
+                <p>August 2019</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Florida State Univeristy</p>
+                <p>Tallahassee, FL</p>
+            </div>
+            <br /><br />
+            <div class="itemHeadingMobile">
+                <p>Bachelor of Arts in Environmental Science and Policy</p>
+                <p>Florida State University</p>
+                <p>May 2018</p>
+                <p>Tallahassee, FL</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Bachelor of Arts in Environmental Science and Policy</p>
+                <p>May 2018</p>
+            </div>
+            <div class="itemHeadingDesktop">
+                <p>Florida State Univeristy</p>
+                <p>Tallahassee, FL</p>
+            </div>
+        </section>
+    </div>
+</Layout>
+
+<style>
+    .wrapper {
+        margin-bottom: 20%;
+    }
+
+    .heading {
+        font-weight: lighter;
+        color: white;
+        text-align: center;
+        border-bottom: 1pt solid white;
+        margin: 20px 5%;
+    }
+
+    .itemContainer {
+        margin: 20px 5%;
+        border: 1pt solid white;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .itemHeadingMobile {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-weight: bold;
+    }
+
+    .itemHeadingMobile > p {
+        margin: 5px;
+    }
+
+    .itemHeadingDesktop {
+        display: none;
+    }
+
+    ul > li {
+        color: white;
+        padding: 10px;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .wrapper {
+            margin-bottom: 5%;
+        }
+
+        .heading {
+            margin: 20px 10%;
+        }
+
+        .itemContainer {
+            margin: 20px 10%;
+        }
+
+        .itemHeadingMobile {
+            display: none;
+        }
+
+        .itemHeadingDesktop {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: white;
+            height: 30px;
+            font-weight: bold;
+        }
+
+        ul {
+            margin: 0 10%;
+        }
+    }
+</style>
