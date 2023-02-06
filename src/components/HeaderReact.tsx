@@ -62,7 +62,7 @@ export const Header = (props: IProps) => {
         desktopMenu: {
             display: 'flex',
             flexDirection: 'row' as 'row',
-            gap: '15px',
+            gap: '30px',
             listStyle: 'none'
         }
     }

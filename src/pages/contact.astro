@@ -6,6 +6,9 @@ import { ContactForm } from '../components/ContactFormReact';
 
 <Layout title="Joshua Landau Contact Page">
     <Header client:only="react" title="Contact" />
+    <!-- <div style="display: flex; justify-content: center;">
+        <img id="profile-picture" src="/profile-picture.png" alt="Profile Picture" />
+    </div> -->
     <p class="heading">
         Let's build something together!
     </p>
@@ -13,6 +16,12 @@ import { ContactForm } from '../components/ContactFormReact';
 </Layout>
 
 <style>
+    img#profile-picture {
+		height: 200px;
+		border: 1pt solid black;
+		border-radius: 50%;
+	}
+
     .heading {
         color: white;
         text-align: center;
