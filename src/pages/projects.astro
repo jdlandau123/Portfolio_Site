@@ -7,12 +7,44 @@ const tamDescription = `Users can input an area of interest and the app will
     create a raster dataset that identifies areas within the specified AOI that 
     are susceptible to flooding. I used vanilla HTML, CSS, and Javascript along with
     ESRI's ArcGIS Javascript API to build the UI of this application.`;
+
+const snoquamieDescription = `A portal website that members of the Snoqualmie Indian Tribe can use to view their
+    tribal member benefits and keep up with tribe events and happenings. This application was built using Django
+    and Wagtail CMS.`;
+
+const pixasketchDescription = `Pixasketch is a lightweight web app for creating sprites and pixel art. It 
+    was built using React and handles everything in the browser. Users can save and restore their artwork
+    using localstorage to completely eliminate the need for a database connection.`;
 ---
 
 <Layout title="Joshua Landau Projects Page">
     <Header client:only="react" title="Projects" />
-    <Project title="Texas A&M Flow Path Generation Tool"
-        url="https://fastgis.agnet.tamu.edu/alpha/"
-        image="/tam-screenshot.png"
-        description={tamDescription} />
+    <div class="projectsContainer">
+        <Project title="Texas A&M Flow Path Generation Tool"
+            url="https://fastgis.agnet.tamu.edu/alpha/"
+            image="/tam-screenshot.png"
+            description={tamDescription} />
+
+        <Project title="Snoqualmie Tribal Member Portal"
+            image="/snoqualmie-forms.png"
+            description={snoquamieDescription} />
+
+        <Project title="Pixasketch" url="https://pixasketch.com" image="/pixasketch-screenshot.png"
+            description={pixasketchDescription} />
+    </div>  
 </Layout>
+
+<style>
+    .projectsContainer {
+        margin-bottom: 25%;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .projectsContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-bottom: 5%;
+        }
+    }
+</style>
