@@ -1,0 +1,100 @@
+---
+const { title, url, image, bulletPoints } = Astro.props;
+---
+
+<div class="wrapper">
+    <div class="projectContainer">
+        <img class="image" src={image} alt={title} />
+        <div>
+            {url 
+            ? <a class="link" href={url} target="_blank">
+                <h2 class="heading">{title}</h2>
+            </a>
+            : <h2 class="heading">{title}</h2>}
+            <ul>
+                {bulletPoints.map((item) => (
+                  <li class="text">{item}</li>
+                ))}
+            </ul>
+            {url && <div class="btnDiv">
+                <a href={url} target="_blank">
+                    <button>Check it out</button>
+                </a>
+            </div>}
+        </div>
+    </div>
+</div>
+
+<style>
+    .projectContainer {
+        display: flex;
+        flex-direction: row;
+        background-color: rgba(0, 0, 0, 0.35);
+        border: 1pt solid white;
+        border-radius: 8px;
+        margin: 20px 20px;
+        padding: 10px;
+    }
+
+    .heading {
+        font-weight: lighter;
+        color: white;
+        text-align: center;
+    }
+
+    .link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+    .image {
+        width: 40%;
+        border-radius: 8px;
+    }
+
+    li {
+        margin-top: 10px;
+    }
+
+    button {
+        border: 1pt solid black;
+        border-radius: 8px;
+        background-color: #009933;
+        color: white;
+        padding: 10px;
+        width: fit-content;
+    }
+
+    button:hover {
+        background-color: #00cc44;
+        cursor: pointer;
+    }
+
+    .btnDiv {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+        margin-bottom: 2%
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .projectContainer {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.35);
+            border: 1pt solid white;
+            border-radius: 8px;
+            margin: 20px 20px;
+            padding: 10px;
+        }
+
+        .image {
+            width: 100%;
+            border-radius: 8px;
+        }
+    }
+</style>

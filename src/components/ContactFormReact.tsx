@@ -123,7 +123,8 @@ export const ContactForm = () => {
             backgroundColor: btnHover ? '#00cc44' : '#009933',
             color: 'white',
             padding: '10px',
-            width: '10%'
+            width: '10%',
+            cursor: btnHover ? 'pointer' : null
         },
         buttonDisabled: {
             border: '1px solid #999999',

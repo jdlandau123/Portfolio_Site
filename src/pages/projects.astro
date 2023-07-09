@@ -1,37 +1,92 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Project from '../components/Project.astro';
+// import Project from '../components/Project.astro';
 import { Header } from '../components/HeaderReact';
+import ProjectAlt from '../components/ProjectAlt.astro';
 
-const tamDescription = `Users can input an area of interest and the app will 
-    create a raster dataset that identifies areas within the specified AOI that 
-    are susceptible to flooding. I used vanilla HTML, CSS, and Javascript along with
-    ESRI's ArcGIS Javascript API to build the UI of this application.`;
+// const tamDescription = `Users can input an area of interest and the app will 
+//     create a raster dataset that identifies areas within the specified AOI that 
+//     are susceptible to flooding. I used vanilla HTML, CSS, and Javascript along with
+//     ESRI's ArcGIS Javascript API to build the UI of this application.`;
 
-const snoquamieDescription = `A portal website that members of the Snoqualmie Indian Tribe can use to view their
-    tribal member benefits and keep up with tribe events and happenings. This application was built using Django
-    and Wagtail CMS.`;
+// const snoquamieDescription = `A portal website that members of the Snoqualmie Indian Tribe can use to view their
+//     tribal member benefits and keep up with tribe events and happenings. This application was built using Django
+//     and Wagtail CMS.`;
 
-const pixasketchDescription = `Pixasketch is a lightweight web app for creating sprites and pixel art. It 
-    was built using React and handles everything in the browser. Users can save and restore their artwork
-    using localstorage to completely eliminate the need for a database connection.`;
+// const pixasketchDescription = `Pixasketch is a lightweight web app for creating sprites and pixel art. It 
+//     was built using React and handles everything in the browser. Users can save and restore their artwork
+//     using localstorage to completely eliminate the need for a database connection.`;
+
+// const smartintroDescription = `SmartIntro is an AI powered web application that allows marketing professionals to upload
+//     a spreadsheet with prospect LinkedIn profile urls to generate customized intro sentences for cold outreach.
+//     This is a side project that I have been working on for the past few months, and it is currently in beta
+//     being tested by a small group of users.`;
+
+const tamBullets = [
+    `Users can draw an area of interest on the map and the app will create a raster dataset that identifies areas
+    within the specified AOI that are susceptible to flooding`,
+    `The application was build with vanilla HTML, CSS, and Javascript, along with ESRI's ArcGIS Javascript API`,
+    `Working on this project was a valuable experience because it gave me the opportunity to build a complex highly
+    interactive user interface without relying on a framework`
+];
+
+const smartintroBullets = [
+    `SmartIntro is an AI powered web application that allows users to upload a spreadsheet with prospect LinkedIn profile
+    urls to generate customized intro sentences for cold outreach`,
+    `This is a side project that I have been working on for the past few months. It is currently in beta being
+    tested by a small group of users`,
+    `For this project I designed the application architecture, handled all of the server side development and deployment, and
+    also developed the majority of the user interface`,
+    `This application uses React with Material UI on the front end, and a combination of Django REST Framework, Postgres,
+    Celery, and an AWS Lambda on the backend`,
+    'Links coming soon - this application is still under active development'
+];
+
+const snoqualmieBullets = [
+    `A portal website that members of the Snoqualmie Indian Tribe can use to view their tribal member benefits
+    and keep up with tribe events and happenings`,
+    `This application was built using Django, Postgres, and Wagtail CMS`
+];
 ---
 
 <Layout title="Joshua Landau Projects Page">
     <Header client:only="react" title="Projects" />
     <div class="projectsContainer">
-        <Project title="Texas A&M Flow Path Generation Tool"
+        <ProjectAlt title="Texas A&M Flow Path Generation Tool"
             url="https://fastgis.agnet.tamu.edu/alpha/"
-            image="/tam-screenshot.png"
+            image="/tam-screenshot-min.png"
+            bulletPoints={tamBullets} />
+
+        <ProjectAlt title="SmartIntro"
+            image="/smartintro-new-screenshot-min.jpg"
+            bulletPoints={smartintroBullets} />
+
+        <ProjectAlt title="Snoqualmie Tribal Member Portal"
+            image="/snoqualmie-forms-min.png"
+            bulletPoints={snoqualmieBullets} />
+    
+
+        <!-- <Project title="Texas A&M Flow Path Generation Tool"
+            url="https://fastgis.agnet.tamu.edu/alpha/"
+            image="/tam-screenshot-min.png"
             description={tamDescription} />
 
         <Project title="Snoqualmie Tribal Member Portal"
-            image="/snoqualmie-forms.png"
+            image="/snoqualmie-forms-min.png"
             description={snoquamieDescription} />
 
         <Project title="Pixasketch" url="https://pixasketch.com" image="/pixasketch-screenshot.png"
             description={pixasketchDescription} />
-    </div>  
+
+        <Project title="SmartIntro"
+            url="https://app.smartintro.io"
+            image="/smartintro-new-screenshot-min.jpg"
+            description={smartintroDescription} /> -->
+        
+        <!-- <p class="text" style="text-align: center;">
+            Disclaimer: I did not create the visual designs for any of the projects shown above
+        </p> -->
+    </div>
 </Layout>
 
 <style>
@@ -42,7 +97,8 @@ const pixasketchDescription = `Pixasketch is a lightweight web app for creating 
     @media only screen and (min-width: 600px) {
         .projectsContainer {
             display: flex;
-            flex-direction: row;
+            /* flex-direction: row; */
+            flex-direction: column;
             justify-content: space-around;
             margin-bottom: 5%;
         }
